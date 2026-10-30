@@ -14,3 +14,15 @@
 
 
 
+
+.formulario form { width: 900px; }
+
+@media (max-width: 600px) {
+  .formulario { margin: 32px 0; }
+  .formulario form { max-width: calc(100% - 32px); padding: 24px; }
+  .formulario h2 { font-size: 22px; }
+  .campo-texto input, .lista-suspensa select { font-size: 18px; padding: 16px; }
+  .campo-texto label, .lista-suspensa label { font-size: 18px; }
+  .botao { width: 100%; padding: 20px; }
+  .time { padding: 24px 16px; }
+}

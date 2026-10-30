@@ -10,14 +10,21 @@ function Formulario(props) {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [erro, setErro] = useState('')
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
 
+        if (!nome.trim() || !cargo.trim()) {
+            setErro("Preencha o nome e o cargo com texto válido.")
+            return
+        }
+
+        setErro('')
         props.aoColaboradorCadastrado({
-            nome,
-            cargo,
-            imagem,
+            nome: nome.trim(),
+            cargo: cargo.trim(),
+            imagem: imagem.trim(),
             time
         })
 
@@ -34,6 +41,7 @@ function Formulario(props) {
 
                 <CampoTexto
                     obrigatorio={true}
+                    id="nome"
                     label="Nome"
                     placeholder="Digite seu nome"
                     valor={nome}
@@ -42,6 +50,7 @@ function Formulario(props) {
 
                 <CampoTexto
                     obrigatorio={true}
+                    id="cargo"
                     label="Cargo"
                     placeholder="Digite seu cargo"
                     valor={cargo}
@@ -49,6 +58,8 @@ function Formulario(props) {
                 />
 
                 <CampoTexto
+                    id="imagem"
+                    tipo="url"
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
                     valor={imagem}
@@ -57,11 +68,14 @@ function Formulario(props) {
 
                 <ListaSuspensa
                     obrigatorio={true}
+                    id="time"
                     label="Time"
                     items={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
+
+                {erro && <p role="alert">{erro}</p>}
 
                 <Botao texto="Criar card" />
             </form>
