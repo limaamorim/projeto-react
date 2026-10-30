@@ -8,8 +8,8 @@ function CampoTexto(props) {
 
     return (
         <div className="campo-texto">
-            <label>{props.label}</label>
-            <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={props.placeholder} />
+            <label htmlFor={props.id}>{props.label}</label>
+            <input id={props.id} type={props.tipo || 'text'} value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={props.placeholder} />
 
         </div>
     )

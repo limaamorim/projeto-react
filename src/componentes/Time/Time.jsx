@@ -16,7 +16,7 @@ function Time(props) {
         <div className="colaboradores">
           {props.colaboradores.map(colaborador => (
             <Colaborador
-              key={colaborador.nome}
+              key={colaborador.id}
               nome={colaborador.nome}
               cargo={colaborador.cargo}
               imagem={colaborador.imagem}

@@ -7,7 +7,13 @@ function Colaborador(props) {
         className="cabecalho"
         style={{ backgroundColor: props.corDeFundo }}
       >
-        <img src={props.imagem} alt={props.nome} />
+        {props.imagem ? (
+          <img src={props.imagem} alt={props.nome} />
+        ) : (
+          <span className="avatar" aria-label="Sem foto">
+            {props.nome.charAt(0).toUpperCase()}
+          </span>
+        )}
       </div>
 
       <div className="rodape">

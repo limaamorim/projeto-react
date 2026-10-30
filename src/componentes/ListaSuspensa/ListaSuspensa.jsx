@@ -3,9 +3,10 @@ import './ListaSuspensa.css'
 function ListaSuspensa(props) {
   return (
     <div className="lista-suspensa">
-      <label>{props.label}</label>
+      <label htmlFor={props.id}>{props.label}</label>
 
       <select
+        id={props.id}
         value={props.valor}
         onChange={evento =>
           props.aoAlterado(evento.target.value)

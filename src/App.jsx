@@ -40,8 +40,9 @@ function App() {
   const [colaboradores, setColaboradores] = useState([])
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    
-    setColaboradores([...colaboradores, colaborador])
+    // O ID permite cadastrar pessoas com o mesmo nome sem repetir a key.
+    const novoColaborador = { ...colaborador, id: crypto.randomUUID() }
+    setColaboradores([...colaboradores, novoColaborador])
   }
 
   return (

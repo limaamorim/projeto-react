@@ -2,7 +2,7 @@ import './Botao.css'
 
 function Botao (props) {
     return (
-        <button className = 'botao'>
+        <button type="submit" className='botao'>
             {props.texto}
         </button>
     )

@@ -1,0 +1,14 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #212121;
+}
+
+input, select, button { font: inherit; }
+
+input:focus-visible, select:focus-visible, button:focus-visible {
+  outline: 3px solid #344bc4;
+  outline-offset: 3px;
+}
