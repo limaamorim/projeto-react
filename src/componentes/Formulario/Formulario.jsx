@@ -4,24 +4,21 @@ import ListaSuspensa from '../ListaSuspensa/ListaSuspensa'
 import Botao from '../Botao/Botao'
 import { useState } from 'react'
 
-function Formulario() {
+function Formulario(props) {
 
-    const [nome, setNome] = useState ('')
-    const [cargo, setCargo] = useState ('')
-    const [imagem, setImagem] = useState ('')
+    const [nome, setNome] = useState('')
+    const [cargo, setCargo] = useState('')
+    const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
-
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'DevOps',
-        'Mobile'
-    ]
 
     const aoSalvar = (evento) => {
         evento.preventDefault();
-        console.log("Form foi submetido")
+        props.aoColaboradorCadastrado({
+            nome,
+            cargo,
+            imagem,
+            time
+        })
     }
 
     return (
@@ -34,7 +31,7 @@ function Formulario() {
                     label="Nome"
                     placeholder="Digite seu nome"
                     valor={nome}
-                    aoAlterado = {valor => setNome(valor)}
+                    aoAlterado={valor => setNome(valor)}
                 />
 
                 <CampoTexto
@@ -42,22 +39,22 @@ function Formulario() {
                     label="Cargo"
                     placeholder="Digite seu cargo"
                     valor={cargo}
-                    aoAlterado = {valor => setCargo(valor)}
+                    aoAlterado={valor => setCargo(valor)}
                 />
 
                 <CampoTexto
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
                     valor={imagem}
-                    aoAlterado = {valor => setImagem(valor)}
+                    aoAlterado={valor => setImagem(valor)}
                 />
 
                 <ListaSuspensa
                     obrigatorio={true}
                     label="Time"
-                    items={times}
-                    valor= {time}
-                    aoAlterado = {valor => setTime(valor)}
+                    items={props.times}
+                    valor={time}
+                    aoAlterado={valor => setTime(valor)}
                 />
 
                 <Botao texto="Criar card" />
